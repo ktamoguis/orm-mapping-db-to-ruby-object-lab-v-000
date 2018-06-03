@@ -37,9 +37,9 @@ class Student
 
   def self.count_all_students_in_grade_9
     sql = <<-SQL
-      SELECT * FROM students
-      WHERE name = ?
-      LIMIT 1
+      SELECT count(name) FROM students
+      GROUP BY grade
+      HAVING grade = "9"
     SQL
     DB[:conn].execute(sql)
   end
