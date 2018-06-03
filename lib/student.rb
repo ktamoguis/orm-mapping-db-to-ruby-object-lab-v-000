@@ -35,6 +35,9 @@ class Student
     end.first
   end
 
+  def self.count_all_students_in_grade_9
+  end
+
   def self.first_X_students_in_grade_10(x)
     sql = <<-SQL
       SELECT * FROM students
