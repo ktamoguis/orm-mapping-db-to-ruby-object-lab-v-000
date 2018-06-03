@@ -33,7 +33,7 @@ class Student
     sql = <<-SQL
       SELECT * students WHERE name = ?
     SQL
-    Student.new_from_db(DB[:conn].execute(sql, self.name, self.grade))
+    Student.new_from_db(DB[:conn].execute(sql, name)
   end
 
   def save
