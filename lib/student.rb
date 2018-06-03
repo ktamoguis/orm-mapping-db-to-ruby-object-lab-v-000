@@ -33,7 +33,7 @@ class Student
     sql = <<-SQL
       SELECT * students WHERE name = ? LIMIT 1
     SQL
-    Student.new_from_db(DB[:conn].execute(sql, name))
+    DB[:conn].execute(sql, name)
   end
 
   def save
