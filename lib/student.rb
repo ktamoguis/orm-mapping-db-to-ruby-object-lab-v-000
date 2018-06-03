@@ -46,7 +46,7 @@ class Student
 
   def self.students_below_12th_grade
     sql = <<-SQL
-      SELECT count(name) FROM students
+      SELECT * FROM students
       GROUP BY grade
       HAVING grade < 12
     SQL
