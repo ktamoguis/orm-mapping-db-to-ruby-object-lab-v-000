@@ -31,7 +31,7 @@ class Student
     # find the student in the database given a name
     # return a new instance of the Student class
     sql = <<-SQL
-      SELECT * students WHERE name = ?
+      SELECT * students WHERE name = ? LIMIT 1
     SQL
     Student.new_from_db(DB[:conn].execute(sql, name)
   end
