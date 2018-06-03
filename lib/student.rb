@@ -45,6 +45,14 @@ class Student
   end
 
   def.students_below_12th_grade
+    sql = <<-SQL
+      SELECT count(name) FROM students
+      GROUP BY grade
+      HAVING grade = 
+    SQL
+    DB[:conn].execute(sql, x).map do |row|
+      self.new_from_db(row)
+    end
   end
 
   def self.first_X_students_in_grade_10(x)
@@ -94,7 +102,7 @@ class Student
     CREATE TABLE IF NOT EXISTS students (
       id INTEGER PRIMARY KEY,
       name TEXT,
-      grade TEXT
+      grade INTEGER
     )
     SQL
 
